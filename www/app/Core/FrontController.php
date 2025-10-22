@@ -34,6 +34,12 @@ class FrontController{
                 $controller->error405();
             }
         );
+        Route::add('/inicio2',
+            function(){
+                $controlador = new \Com\Daw2\Controllers\InicioController();
+                $controlador->index2();
+            }
+            , 'get');
         Route::run();
     }
 }

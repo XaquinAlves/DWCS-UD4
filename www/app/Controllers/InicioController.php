@@ -12,7 +12,15 @@ class InicioController extends \Com\Daw2\Core\BaseController {
         );        
         $this->view->showViews(array('templates/header.view.php', 'inicio.view.php', 'templates/footer.view.php'), $data);
     }
-    
+    public function index2() {
+        $data = array(
+            'titulo' => 'Página de inicio 2',
+            'breadcrumb' => ['Inicio'],
+            'seccion' => '/inicio',
+            'numProductos' => 1800
+        );
+        $this->view->showViews(array('templates/header.view.php', 'inicio.view.php', 'templates/footer.view.php'), $data);
+    }
     public function demo() {
         $data = array(
             'titulo' => 'Demo html proveedores',
