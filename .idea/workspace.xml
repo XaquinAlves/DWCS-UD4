@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Ejercicios Iterativas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +39,12 @@
     &quot;assignee&quot;: &quot;XaquinAlves&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/XaquinAlves/DWCS-UD4",
-    "accountId": "099b7235-05a7-47b5-9ae1-70969fa2c459"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/XaquinAlves/DWCS-UD4&quot;,
+    &quot;accountId&quot;: &quot;099b7235-05a7-47b5-9ae1-70969fa2c459&quot;
   }
-}]]></component>
+}</component>
   <component name="PHPCodeSnifferProjectConfiguration">
     <option name="selectedConfigurationId" value="9e3a7127-42d1-4081-8aa7-01e9f0d9c003" />
   </component>
@@ -97,7 +96,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "fileTemplates",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -122,7 +121,8 @@
       <workItem from="1760976924798" duration="367000" />
       <workItem from="1760977340288" duration="128000" />
       <workItem from="1761033494849" duration="5805000" />
-      <workItem from="1761117167294" duration="8664000" />
+      <workItem from="1761117167294" duration="10490000" />
+      <workItem from="1761143212230" duration="136000" />
     </task>
     <task id="LOCAL-00001" summary="Config">
       <option name="closed" value="true" />
@@ -164,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761124851284</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Ejercicios Iterativas">
+      <option name="closed" value="true" />
+      <created>1761127501569</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1761127501569</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
