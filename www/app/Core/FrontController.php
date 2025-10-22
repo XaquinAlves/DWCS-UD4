@@ -40,6 +40,26 @@ class FrontController{
                 $controlador->index2();
             }
             , 'get');
+
+        Route::add('/iterativas06',
+            function(){
+                $controlador = new \Com\Daw2\Controllers\IterativasController();
+                $controlador->iterativas06();
+            }
+            , 'get');
+
+        Route::add('/iterativas03',
+            function(){
+                $controlador = new \Com\Daw2\Controllers\IterativasController();
+                $controlador->showIterativas03();
+            }
+            , 'get');
+
+        Route::add('/iterativas03', function(){
+            $controlador = new \Com\Daw2\Controllers\IterativasController();
+            $controlador->doIterativas03();
+        },
+            'post');
         Route::run();
     }
 }

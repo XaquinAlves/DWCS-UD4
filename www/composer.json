@@ -1,6 +1,6 @@
 {
-    "name": "com/daw2",
-    "description": "Framework DAw2",
+    "name": "dwsc/ud4",
+    "description": "Framework DAW2",
     "type": "project",
     "license": "MIT",
     "autoload": {

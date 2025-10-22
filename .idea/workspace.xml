@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="workspace">
+    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Pequenas pruebas">
+      <change afterPath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/app/Controllers/iterativas06controller.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/app/Views/iterativas03.view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/www/app/Views/iterativas06.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/app/Controllers/InicioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Controllers/InicioController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/app/Core/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Core/FrontController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Views/inicio.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/inicio.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/app/Core/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Core/View.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/www/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/vendor/composer/installed.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +25,15 @@
   <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/www/composer.json</pharConfigPath>
     <execution>
-      <interpreter name="php" composer="composer" />
+      <interpreter name="Docker php" composer="composer" />
     </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="PHP File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -35,16 +49,27 @@
     &quot;assignee&quot;: &quot;XaquinAlves&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/XaquinAlves/DWCS-UD4.git&quot;,
-    &quot;accountId&quot;: &quot;099b7235-05a7-47b5-9ae1-70969fa2c459&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/XaquinAlves/DWCS-UD4",
+    "accountId": "099b7235-05a7-47b5-9ae1-70969fa2c459"
   }
-}</component>
+}]]></component>
   <component name="PHPCodeSnifferProjectConfiguration">
     <option name="selectedConfigurationId" value="9e3a7127-42d1-4081-8aa7-01e9f0d9c003" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="php">
+  <component name="PhpDebugGeneral" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="45c47f39-1b09-4d0c-8a30-9a46292c5616" name="localhost" port="8080" use_path_mappings="true">
+        <path_mappings>
+          <mapping local-root="$PROJECT_DIR$/www" remote-root="/var/www/html" />
+          <mapping local-root="$PROJECT_DIR$/www/public" remote-root="/var/www/html/public" />
+        </path_mappings>
+      </server>
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="Docker php">
     <include_path>
       <path value="$PROJECT_DIR$/www/vendor/composer" />
       <path value="$PROJECT_DIR$/www/vendor/graham-campbell/result-type" />
@@ -76,12 +101,12 @@
     "credentialsType com.jetbrains.php.remote.interpreter.ui.PhpInplaceEditRemoteSdkForm": "Docker Compose",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/home/daw2al03/Documentos/DWCS/DWCS-UD4",
+    "last_opened_file_path": "/home/daw2al03/Documentos/DWCS/DWCS-UD4/www",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "settings.sync",
+    "settings.editor.selected.configurable": "fileTemplates",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -106,6 +131,7 @@
       <workItem from="1760976924798" duration="367000" />
       <workItem from="1760977340288" duration="128000" />
       <workItem from="1761033494849" duration="5805000" />
+      <workItem from="1761117167294" duration="7666000" />
     </task>
     <task id="LOCAL-00001" summary="Config">
       <option name="closed" value="true" />
@@ -131,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761036799710</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Pequenas pruebas">
+      <option name="closed" value="true" />
+      <created>1761117360540</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1761117360540</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,7 +175,19 @@
     <MESSAGE value="Config" />
     <MESSAGE value="Added Readme" />
     <MESSAGE value="workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="workspace" />
+    <MESSAGE value="Pequenas pruebas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pequenas pruebas" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/www/app/Controllers/InicioController.php</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

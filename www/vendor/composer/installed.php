@@ -1,6 +1,6 @@
 <?php return array(
     'root' => array(
-        'name' => 'com/daw2',
+        'name' => 'dwsc/ud4',
         'pretty_version' => '1.0.0+no-version-set',
         'version' => '1.0.0.0',
         'reference' => null,
@@ -10,7 +10,7 @@
         'dev' => true,
     ),
     'versions' => array(
-        'com/daw2' => array(
+        'dwsc/ud4' => array(
             'pretty_version' => '1.0.0+no-version-set',
             'version' => '1.0.0.0',
             'reference' => null,

@@ -2,19 +2,21 @@
 
 namespace Com\Daw2\Core;
 
-class View {
-
+class View
+{
     private $controller;
 
-    public function __construct(string $controller) {
+    public function __construct(string $controller)
+    {
         $this->controller = $controller;
     }
 
-    public function show(string $name, $vars = array()) {
+    public function show(string $name, $vars = array())
+    {
         //$name - nombre de nuestra plantilla, por ej, listar.php
         //$vars - contenedor de variables,
         //   es un array del tipo clave => valor (opcional).
-        //Cogemos una instancia de nuestra clase de configuracion.        
+        //Cogemos una instancia de nuestra clase de configuracion.
 
         //Creamos la ruta real a la plantilla
         $path = $_ENV['folder.views'] . $name;
@@ -36,11 +38,12 @@ class View {
         include($path);
     }
 
-    public function showViews(array $views, $vars = array()) {
+    public function showViews(array $views, $vars = array())
+    {
         //$name - nombre de nuestra plantilla, por ej, listar.php
         //$vars - contenedor de variables,
         //   es un array del tipo clave => valor (opcional).
-        //Cogemos una instancia de nuestra clase de configuracion.        
+        //Cogemos una instancia de nuestra clase de configuracion.
 
         foreach ($views as $v) {
             //Creamos la ruta real a la plantilla
@@ -66,5 +69,4 @@ class View {
             include($path);
         }
     }
-
 }
