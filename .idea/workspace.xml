@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Pequenas pruebas">
-      <change afterPath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/app/Controllers/iterativas06controller.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/app/Views/iterativas03.view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/www/app/Views/iterativas06.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Ejercicios Iterativas">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Controllers/InicioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Controllers/InicioController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Core/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Core/FrontController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Core/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Core/View.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/www/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +122,7 @@
       <workItem from="1760976924798" duration="367000" />
       <workItem from="1760977340288" duration="128000" />
       <workItem from="1761033494849" duration="5805000" />
-      <workItem from="1761117167294" duration="7666000" />
+      <workItem from="1761117167294" duration="8664000" />
     </task>
     <task id="LOCAL-00001" summary="Config">
       <option name="closed" value="true" />
@@ -165,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761117360540</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Ejercicios Iterativas">
+      <option name="closed" value="true" />
+      <created>1761124851284</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1761124851284</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,7 +175,8 @@
     <MESSAGE value="Added Readme" />
     <MESSAGE value="workspace" />
     <MESSAGE value="Pequenas pruebas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pequenas pruebas" />
+    <MESSAGE value="Ejercicios Iterativas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ejercicios Iterativas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

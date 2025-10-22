@@ -20,7 +20,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
 
     public function doIterativas03(): void
     {
-        $erros = $this->checkForm03($_POST);
+        $errors = $this->checkForm03($_POST);
 //        if (isset($_POST['enviar'])) {
 //            //Comprobar
 //            $erros = checkForm($_POST);
@@ -62,11 +62,8 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         if (empty($data['input_matriz'])) {
             $erros['matriz'] = "Inserte una matriz";
         } else {
-            $check = true;
             $auxMatriz = explode('|', $data['input_matriz']);
-            $auxLineal = [];
             $procesada = array();
-            $lengthFirst = 0;
 
             foreach ($auxMatriz as $linea) {
                 $procesada[] = explode(',', $linea);
@@ -81,46 +78,27 @@ class IterativasController extends \Com\Daw2\Core\BaseController
                     }
                 }
             }
+
             if ($noNumeros !== []) {
                 $erros['matriz'] = "Los siguientes elementos no son numeros: " . implode(', ', $noNumeros) . ".";
-            }
+            } else {
+                //Comprobar que las filas de la matriz tienen el mismo tamaño
+                $tamanoPrimera = count($procesada[0]);
+                $i = 1;
+                $errorTamano = false;
 
-            //Comprobar que las filas de la matriz tienen el mismo tamaño
+                while ($i < count($procesada) && !$errorTamano) {
+                    $errorTamano = count($procesada[$i]) !== $tamanoPrimera;
+                    $i++;
+                }
 
-            $tamanoPrimera = count($procesada[0]);
-            $i = 1;
-            $errorTamano = false;
-            while ($i < count($procesada) && !$errorTamano) {
-                $errorTamano = count($procesada[$i]) !== $tamanoPrimera;
-                $i++;
-            }
-
-            if($errorTamano){
-                $erros['matriz'] = 'Todas las lineas deben tener la misma longitud';
+                if ($errorTamano) {
+                    $erros['matriz'] = 'Todas las lineas deben tener la misma longitud';
+                }
             }
         }
 
         return $erros;
-    }
-
-    private function matrizLineal(array $auxMatrix): ?array
-    {
-        $auxLength = 0;
-        $auxLineal = [];
-        $lengthFirst = 0;
-
-        for ($i = 0; $i < count($auxMatrix); $i++) {
-            $auxLine = explode(',', $auxMatrix[$i]);
-            $auxLineal = array_merge($auxLineal, $auxLine);
-            if ($i === 0) {
-                $lengthFirst = count($auxLine);
-            }
-            if ($lengthFirst != count($auxLine)) {
-                return null;
-            }
-        }
-
-        return $auxLineal;
     }
 
     private function bubbleSort(array $arr): array
