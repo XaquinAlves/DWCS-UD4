@@ -14,7 +14,7 @@
                         <div class="row">
                             <div class="col-12 col-lg-4">
                                 <div class="mb-3">
-                                    <label for="alias">Introduce un texto: </label>
+                                    <label for="input_letras">Introduce un texto: </label>
                                     <input type="text" class="form-control" name="input_letras" id="input_letras"
                                            value="<?= $input['input_letras'] ?? '' ?>" />
                                 </div>

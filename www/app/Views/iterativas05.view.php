@@ -12,11 +12,10 @@
                 <div class="card-body">
                     <form action="" method="post">
                         <div class="row">
-                            <div class="col-12 col-lg-4">
+                            <div class="col-12">
                                 <div class="mb-3">
-                                    <label for="input_matriz">Introduce una matriz de numeros: </label>
-                                    <input type="text" class="form-control" name="input_matriz" id="input_matriz"
-                                           value="<?= $input['input_matriz'] ?? '' ?>" />
+                                    <label for="input_palabras">Introduce un texto: </label>
+                                    <textarea name="input_palabras" id="input_palabras" rows="10" class="form-control"><?= $input['input_palabras'] ?? '' ?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -26,10 +25,10 @@
                         <input type="submit" value="Enviar" name="enviar" class="btn btn-primary ml-2"/>
                     </div>
                     <div class="col-12">
-                        <?php if(isset($errors['matriz'])){ ?>
-                            <div class='alert alert-danger'><?= $errors['matriz'] ?></div>
-                        <?php } else if ($ordenados !== "") { ?>
-                            <div class='col-12'><div class='alert alert-success'>Matriz ordenada: <?= $ordenados ?></div></div>
+                        <?php if(isset($errors['palabras'])){ ?>
+                            <div class='alert alert-danger'><?= $errors['palabras'] ?></div>
+                        <?php } else if ($cuentapalabras !== "") { ?>
+                            <div class='col-12'><div class='alert alert-success'>Cuenta de las palabras: <?= $cuentapalabras ?></div></div>
                         <?php } ?>
                     </div>
                 </div>
