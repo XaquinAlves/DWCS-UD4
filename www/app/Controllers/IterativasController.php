@@ -6,13 +6,16 @@ namespace Com\Daw2\Controllers;
 
 class IterativasController extends \Com\Daw2\Core\BaseController
 {
-    public function showIterativas03(): void
+    public function showIterativas03(array $input = [], array $errors = [], string $result = ""): void
     {
         $data = array(
             'titulo' => 'Iterativas 03',
             'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas03'],
-            'seccion' => '/iterativas/03',
-            'tituloEjercicio' => 'Ordenar matriz'
+            'seccion' => '/iterativas03',
+            'tituloEjercicio' => 'Ordenar matriz',
+            'errors' => $errors,
+            'input' => $input,
+            'ordenados' => $result
         );
 
         $this->view->showViews(array('templates/header.view.php', 'iterativas03.view.php', 'templates/footer.view.php'), $data);
@@ -23,16 +26,9 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         $errors = $this->checkForm03($_POST);
         $input = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-        if($errors !== []){
-            $data = array(
-                'titulo' => 'Iterativas 03',
-                'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas03'],
-                'seccion' => '/iterativas/03',
-                'tituloEjercicio' => 'Ordenar matriz',
-                'errors' => $errors,
-                'input' => $input
-            );
-        }else {
+        if ($errors !== []) {
+            $this->showIterativas03($input, $errors);
+        } else {
             $auxMatriz = explode('|', $_POST['input_matriz']);
             $auxLength = 0;
             $auxLineal = [];
@@ -54,17 +50,8 @@ class IterativasController extends \Com\Daw2\Core\BaseController
                 $result[$i] = implode(',', $result[$i]);
             }
             $result = implode('|', $result);
-
-            $data = array(
-                'titulo' => 'Iterativas 03',
-                'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas03'],
-                'seccion' => '/iterativas/03',
-                'tituloEjercicio' => 'Ordenar matriz',
-                'ordenados' => $result,
-                'input' => $input
-            );
+            $this->showIterativas03($input, [], $result);
         }
-        $this->view->showViews(array('templates/header.view.php', 'iterativas03.view.php', 'templates/footer.view.php'), $data);
     }
     private function checkForm03(array $data): array
     {
@@ -112,6 +99,79 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         return $erros;
     }
 
+    public function showIterativas04(array $input = [], array $errors = [], string $result = ""): void
+    {
+        $data = array(
+            'titulo' => 'Iterativas 04',
+            'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas04'],
+            'seccion' => '/iterativas04',
+            'tituloEjercicio' => 'Contar numero de letras',
+            'errors' => $errors,
+            'input' => $input,
+            'cuentaletras' => $result
+        );
+
+        $this->view->showViews(array('templates/header.view.php', 'iterativas04.view.php', 'templates/footer.view.php'), $data);
+    }
+
+    public function doIterativas04(): void
+    {
+        $errors = $this->checkForm04($_POST);
+        $input = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        if ($errors !== []) {
+            $this->showIterativas04($input, $errors);
+        } else {
+            //Pasamos a minúsculas y separamos en un array
+            $aux = str_split(strtolower($input['input_letras']));
+            ;
+            $letters = [];
+            //Recorremos el array contando las letras con un regex
+            for ($i = 0; $i < count($aux); $i++) {
+                if (preg_match("/[a-z]/", $aux[$i])) {
+                    if (array_key_exists($aux[$i], $letters)) {
+                        $letters[$aux[$i]] += 1;
+                    } else {
+                        $letters[$aux[$i]] = 1;
+                    }
+                }
+            }
+            //Pasamos el array a un formato ordenable
+            $letters_sorted = [];
+
+            foreach ($letters as $key => $value) {
+                $letters_sorted[] = [$key, $value];
+            }
+            //Ordenamos el array y lo invertimos para tener de mayor a menor
+            $letters_sorted = $this->bubbleSort($letters_sorted);
+            $letters_sorted = array_reverse($letters_sorted);
+            //Creamos el string de salida
+            $letters_string = "";
+
+            for ($i = 0; $i < count($letters_sorted); $i++) {
+                $letters_string .= $letters_sorted[$i][0] . ": " . $letters_sorted[$i][1];
+
+                if ($i < count($letters_sorted) - 1) {
+                    $letters_string .= ", ";
+                } else {
+                    $letters_string .= ".";
+                }
+            }
+
+            $this->showIterativas04($input, [], $letters_string);
+        }
+    }
+
+    function checkForm04(array $data): array
+    {
+        $erros = [];
+
+        if (empty($data['input_letras'])) {
+            $erros['letras'] = "Inserte un valor no campo";
+        }
+
+        return $erros;
+    }
     private function bubbleSort(array $arr): array
     {
         $n = count($arr);
@@ -137,7 +197,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         $data = array(
             'titulo' => 'Iterativas 06',
             'breadcrumb' => ['Iterativas', '06'],
-            'seccion' => '/iterativas/06',
+            'seccion' => '/iterativas06',
             'tituloEjercicio' => 'Criba de Erastótenes'
         );
         $this->view->showViews(array('templates/header.view.php', 'iterativas06.view.php', 'templates/footer.view.php'), $data);
