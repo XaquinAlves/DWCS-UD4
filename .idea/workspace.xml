@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Done Iterativas04">
-      <change afterPath="$PROJECT_DIR$/www/app/Views/iterativas05.view.php" afterDir="false" />
+    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Done Iterativas05&#10;Minor view fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/app/Core/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Core/FrontController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas03.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas03.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas04.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas04.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas06.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas06.view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +130,7 @@
       <workItem from="1761143354178" duration="96000" />
       <workItem from="1761143459391" duration="1121000" />
       <workItem from="1761144592194" duration="7000" />
-      <workItem from="1761295056478" duration="5068000" />
+      <workItem from="1761295056478" duration="5444000" />
     </task>
     <task id="LOCAL-00001" summary="Config">
       <option name="closed" value="true" />
@@ -246,7 +244,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761300206859</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Done Iterativas05&#10;Minor view fixes">
+      <option name="closed" value="true" />
+      <created>1761301116316</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1761301116316</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -262,7 +268,8 @@
     <MESSAGE value="Done Iterativas03" />
     <MESSAGE value="Doing Iterativas04" />
     <MESSAGE value="Done Iterativas04" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done Iterativas04" />
+    <MESSAGE value="Done Iterativas05&#10;Minor view fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Done Iterativas05&#10;Minor view fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

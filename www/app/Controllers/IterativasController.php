@@ -18,7 +18,8 @@ class IterativasController extends \Com\Daw2\Core\BaseController
             'ordenados' => $result
         );
 
-        $this->view->showViews(array('templates/header.view.php', 'iterativas03.view.php', 'templates/footer.view.php'), $data);
+        $this->view->showViews(array('templates/header.view.php', 'iterativas03.view.php',
+            'templates/footer.view.php'), $data);
     }
 
     public function doIterativas03(): void
@@ -131,7 +132,8 @@ class IterativasController extends \Com\Daw2\Core\BaseController
             'cuentaletras' => $result
         );
 
-        $this->view->showViews(array('templates/header.view.php', 'iterativas04.view.php', 'templates/footer.view.php'), $data);
+        $this->view->showViews(array('templates/header.view.php', 'iterativas04.view.php',
+            'templates/footer.view.php'), $data);
     }
 
     public function doIterativas04(): void
@@ -172,7 +174,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         }
     }
 
-    function checkForm04(array $data): array
+    private function checkForm04(array $data): array
     {
         $erros = [];
 
@@ -192,7 +194,6 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         $words_string = "";
 
         for ($i = 0; $i < count($words_sorted); $i++) {
-
             $words_string .= $words_sorted[$i][0] . ": " . $words_sorted[$i][1];
 
             if ($i < count($words_sorted) - 1) {
@@ -204,13 +205,13 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         return $words_string;
     }
 
-    private function bubbleSortLetters(array $arr) : array {
+    private function bubbleSortLetters(array $arr): array
+    {
         $n = count($arr);
 
         // Traverse through all array elements
         for ($i = 0; $i < $n - 1; $i++) {
             for ($j = 0; $j < $n - $i - 1; $j++) {
-
                 // Swap if the element found is
                 // greater than the next element
                 if ($arr[$j][1] > $arr[$j + 1][1]) {
@@ -228,7 +229,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
     {
         $data = array(
             'titulo' => 'Iterativas 05',
-            'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas04'],
+            'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas05'],
             'seccion' => '/iterativas05',
             'tituloEjercicio' => 'Contar numero de palabras',
             'errors' => $errors,
@@ -236,28 +237,29 @@ class IterativasController extends \Com\Daw2\Core\BaseController
             'cuentapalabras' => $result
         );
 
-        $this->view->showViews(array('templates/header.view.php', 'iterativas05.view.php', 'templates/footer.view.php'), $data);
+        $this->view->showViews(array('templates/header.view.php', 'iterativas05.view.php',
+            'templates/footer.view.php'), $data);
     }
 
-    public function doIterativas05()
+    public function doIterativas05(): void
     {
         $errors = $this->checkForm05($_POST);
         $input = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-        if($errors !== []){
+        if ($errors !== []) {
             $this->showIterativas05($input, $errors);
-        }else{
+        } else {
             //Pasamos a minúsculas y separamos en un array
-            $aux = explode(" ",strtolower($input['input_palabras']));
+            $aux = explode(" ", strtolower($input['input_palabras']));
             $words = [];
             //Contamos las palabras
-            for($i = 0; $i < count($aux); $i++){
+            for ($i = 0; $i < count($aux); $i++) {
                 //Limpiamos puntuación final
-                if(preg_match("/[a-z]+[\.,]/", $aux[$i])){
+                if (preg_match("/[a-z]+[\.,]/", $aux[$i])) {
                     $aux[$i] = preg_replace("/[\.,]/", "", $aux[$i]);
                 }
 
-                if(array_key_exists($aux[$i], $words)){
+                if (array_key_exists($aux[$i], $words)) {
                     $words[$aux[$i]] += 1;
                 } else {
                     $words[$aux[$i]] = 1;
@@ -266,7 +268,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
             //Pasamos el array a un formato ordenable
             $words_sorted = [];
 
-            foreach($words as $key => $value){
+            foreach ($words as $key => $value) {
                 $words_sorted[] = [$key, $value];
             }
             //Ordenamos el array y lo invertimos para tener de mayor a menor
@@ -278,27 +280,30 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         }
     }
 
-    private function checkForm05(array $data) : array {
+    private function checkForm05(array $data): array
+    {
         $errors = [];
 
-        if(empty($data['input_palabras'])){
+        if (empty($data['input_palabras'])) {
             $errors['palabras'] = "Inserte un valor no campo";
         }
 
         return $errors;
     }
-    
 
-    public function iterativas06()
+    public function showIterativas06(array $input = [], array $errors = [], string $result = ""): void
     {
         $data = array(
             'titulo' => 'Iterativas 06',
-            'breadcrumb' => ['Iterativas', '06'],
+            'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas06'],
             'seccion' => '/iterativas06',
-            'tituloEjercicio' => 'Criba de Erastótenes'
+            'tituloEjercicio' => 'Criba de Erastótenes',
+            'errors' => $errors,
+            'input' => $input,
+            'cribado' => $result
         );
-        $this->view->showViews(array('templates/header.view.php', 'iterativas06.view.php', 'templates/footer.view.php'), $data);
+
+        $this->view->showViews(array('templates/header.view.php', 'iterativas06.view.php',
+            'templates/footer.view.php'), $data);
     }
-
-
 }

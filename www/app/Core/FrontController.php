@@ -49,15 +49,6 @@ class FrontController
         );
 
         Route::add(
-            '/iterativas06',
-            function () {
-                $controlador = new \Com\Daw2\Controllers\IterativasController();
-                $controlador->iterativas06();
-            },
-            'get'
-        );
-
-        Route::add(
             '/iterativas03',
             function () {
                 $controlador = new \Com\Daw2\Controllers\IterativasController();
@@ -99,6 +90,21 @@ class FrontController
         Route::add('/iterativas05', function () {
             $controlador = new \Com\Daw2\Controllers\IterativasController();
             $controlador->doIterativas05();
+        },
+            'post');
+
+        Route::add(
+            '/iterativas06',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\IterativasController();
+                $controlador->showIterativas06();
+            },
+            'get'
+        );
+
+        Route::add('/iterativas06', function () {
+            $controlador = new \Com\Daw2\Controllers\IterativasController();
+            $controlador->doIterativas06();
         },
             'post');
 

@@ -14,8 +14,9 @@
                     <div class="row">
                         <div class="col-12 col-lg-4">
                             <div class="mb-3">
-                                <label for="alias">Introduce un número: </label>
-                                <input type="text" class="form-control" name="alias" id="alias" value="" />
+                                <label for="input_erasto">Introduce un número: </label>
+                                <input type="text" class="form-control" name="input_erasto" id="input_erasto"
+                                       value="<?= $input['input_erasto'] ?? '' ?>" />
                             </div>
                         </div>
                     </div>
