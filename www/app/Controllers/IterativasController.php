@@ -306,4 +306,53 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         $this->view->showViews(array('templates/header.view.php', 'iterativas06.view.php',
             'templates/footer.view.php'), $data);
     }
+    public function doIterativas06(): void
+    {
+        $errors = $this->checkForm06($_POST);
+        $input = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        if ($errors !== []) {
+            $this->showIterativas06($input, $errors);
+        } else {
+            $numero = intval($input['input_erasto']);
+            $listaNumeros = [];
+
+            for ($i = 1; $i <= $numero; $i++) {
+                $listaNumeros[] = $i;
+            }
+
+            for ($i = 1; $i < count($listaNumeros); $i++) {
+                for ($j = $i + 1; $j < count($listaNumeros); $j++) {
+                    if ($listaNumeros[$j] % $listaNumeros[$i] === 0) {
+                        array_splice($listaNumeros, $j, 1);
+                    }
+                }
+            }
+
+            $result = implode(', ', $listaNumeros);
+            $this->showIterativas06($input, [], $result);
+        }
+    }
+
+    private function checkForm06(array $data): array
+    {
+        $errors = [];
+
+        if (empty($data['input_erasto'])) {
+            $errors['erasto'] = "Inserte un valor no campo";
+        } else {
+            $check = true;
+            $auxArray = str_split($data['input_erasto']);
+
+            for ($i = 0; $i < count($auxArray) && $check; $i++) {
+                $check = is_numeric($auxArray[$i]);
+            }
+
+            if (!$check) {
+                $errors['erasto'] = "Debes insertar un numero enteiro";
+            }
+        }
+
+        return $errors;
+    }
 }

@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Done Iterativas05&#10;Minor view fixes">
+    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Formating">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Core/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Core/FrontController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas06.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas06.view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,7 +50,7 @@
   <component name="PHPCodeSnifferProjectConfiguration">
     <option name="selectedConfigurationId" value="9e3a7127-42d1-4081-8aa7-01e9f0d9c003" />
   </component>
-  <component name="PhpDebugGeneral" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
+  <component name="PhpDebugGeneral" listening_started="true" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
   <component name="PhpServers">
     <servers>
       <server host="localhost" id="45c47f39-1b09-4d0c-8a30-9a46292c5616" name="localhost" port="8080" use_path_mappings="true">
@@ -130,7 +129,7 @@
       <workItem from="1761143354178" duration="96000" />
       <workItem from="1761143459391" duration="1121000" />
       <workItem from="1761144592194" duration="7000" />
-      <workItem from="1761295056478" duration="5444000" />
+      <workItem from="1761295056478" duration="7574000" />
     </task>
     <task id="LOCAL-00001" summary="Config">
       <option name="closed" value="true" />
@@ -252,7 +251,23 @@
       <option name="project" value="LOCAL" />
       <updated>1761301116316</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Formating">
+      <option name="closed" value="true" />
+      <created>1761301473291</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1761301473291</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Formating">
+      <option name="closed" value="true" />
+      <created>1761301509334</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1761301509334</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +284,8 @@
     <MESSAGE value="Doing Iterativas04" />
     <MESSAGE value="Done Iterativas04" />
     <MESSAGE value="Done Iterativas05&#10;Minor view fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done Iterativas05&#10;Minor view fixes" />
+    <MESSAGE value="Formating" />
+    <option name="LAST_COMMIT_MESSAGE" value="Formating" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -278,6 +294,16 @@
           <url>file://$PROJECT_DIR$/www/app/Controllers/InicioController.php</url>
           <line>15</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/www/app/Controllers/IterativasController.php</url>
+          <line>298</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/www/app/Controllers/IterativasController.php</url>
+          <line>323</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

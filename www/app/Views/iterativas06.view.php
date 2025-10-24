@@ -1,6 +1,13 @@
 <!--Inicio HTML -->
 <div class="row">
     <div class="col-12">
+        <div class="col-12">
+            <?php if(isset($errors['erasto'])){ ?>
+                <div class='alert alert-danger'><?= $errors['erasto'] ?></div>
+            <?php } else if ($cribado !== "") { ?>
+                <div class='col-12'><div class='alert alert-success'>Numeros primos entre 1 e <?= $input['input_erasto'] ?>: <?= $cribado ?></div></div>
+            <?php } ?>
+        </div>
         <div class="card shadow mb-4">
             <form method="post" action="">
                 <input type="hidden" name="order" value="1"/>
