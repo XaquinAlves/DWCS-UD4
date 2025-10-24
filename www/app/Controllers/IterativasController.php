@@ -10,7 +10,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
     {
         $data = array(
             'titulo' => 'Iterativas 03',
-            'breadcrumb' => ['Iterativas', '03'],
+            'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas03'],
             'seccion' => '/iterativas/03',
             'tituloEjercicio' => 'Ordenar matriz'
         );
@@ -21,39 +21,50 @@ class IterativasController extends \Com\Daw2\Core\BaseController
     public function doIterativas03(): void
     {
         $errors = $this->checkForm03($_POST);
-//        if (isset($_POST['enviar'])) {
-//            //Comprobar
-//            $erros = checkForm($_POST);
-//            $data['input_matriz'] = $_POST['input_matriz'];
-//
-//            if (count($erros) > 0) {
-//                $data['erros'] = $erros;
-//            } else {
-//                $auxMatriz = explode('|', $_POST['input_matriz']);
-//                $auxLength = 0;
-//                $auxLineal = [];
-//
-//                for ($i = 0; $i < count($auxMatriz); $i++) {
-//                    $auxLine = explode(',', $auxMatriz[$i]);
-//                    $auxLineal = array_merge($auxLineal, $auxLine);
-//                    $auxLength = count($auxLine);
-//                }
-//
-//                $auxLineal = bubbleSort($auxLineal);
-//                $result = [];
-//
-//                for ($i = 0; $i < count($auxLineal); $i += $auxLength) {
-//                    $result[] = array_slice($auxLineal, $i, $auxLength);
-//                }
-//
-//                for ($i = 0; $i < count($result); $i++) {
-//                    $result[$i] = implode(',', $result[$i]);
-//                }
-//                $result = implode('|', $result);
-//
-//                $data['ordenados'] = $result;
-//            }
-//        }
+        $input = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        if($errors !== []){
+            $data = array(
+                'titulo' => 'Iterativas 03',
+                'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas03'],
+                'seccion' => '/iterativas/03',
+                'tituloEjercicio' => 'Ordenar matriz',
+                'errors' => $errors,
+                'input' => $input
+            );
+        }else {
+            $auxMatriz = explode('|', $_POST['input_matriz']);
+            $auxLength = 0;
+            $auxLineal = [];
+
+            for ($i = 0; $i < count($auxMatriz); $i++) {
+                $auxLine = explode(',', $auxMatriz[$i]);
+                $auxLineal = array_merge($auxLineal, $auxLine);
+                $auxLength = count($auxLine);
+            }
+
+            $auxLineal = $this->bubbleSort($auxLineal);
+            $result = [];
+
+            for ($i = 0; $i < count($auxLineal); $i += $auxLength) {
+                $result[] = array_slice($auxLineal, $i, $auxLength);
+            }
+
+            for ($i = 0; $i < count($result); $i++) {
+                $result[$i] = implode(',', $result[$i]);
+            }
+            $result = implode('|', $result);
+
+            $data = array(
+                'titulo' => 'Iterativas 03',
+                'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas03'],
+                'seccion' => '/iterativas/03',
+                'tituloEjercicio' => 'Ordenar matriz',
+                'ordenados' => $result,
+                'input' => $input
+            );
+        }
+        $this->view->showViews(array('templates/header.view.php', 'iterativas03.view.php', 'templates/footer.view.php'), $data);
     }
     private function checkForm03(array $data): array
     {
