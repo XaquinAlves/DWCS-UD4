@@ -99,6 +99,26 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         return $erros;
     }
 
+    private function bubbleSort(array $arr): array
+    {
+        $n = count($arr);
+
+        // Traverse through all array elements
+        for ($i = 0; $i < $n - 1; $i++) {
+            for ($j = 0; $j < $n - $i - 1; $j++) {
+                // Swap if the element found is
+                // greater than the next element
+                if ($arr[$j] > $arr[$j + 1]) {
+                    $temp = $arr[$j];
+                    $arr[$j] = $arr[$j + 1];
+                    $arr[$j + 1] = $temp;
+                }
+            }
+        }
+
+        return $arr;
+    }
+
     public function showIterativas04(array $input = [], array $errors = [], string $result = ""): void
     {
         $data = array(
@@ -143,7 +163,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
                 $letters_sorted[] = [$key, $value];
             }
             //Ordenamos el array y lo invertimos para tener de mayor a menor
-            $letters_sorted = $this->bubbleSort($letters_sorted);
+            $letters_sorted = $this->bubbleSortLeters($letters_sorted);
             $letters_sorted = array_reverse($letters_sorted);
             //Creamos el string de salida
             $letters_string = "";
@@ -172,16 +192,17 @@ class IterativasController extends \Com\Daw2\Core\BaseController
 
         return $erros;
     }
-    private function bubbleSort(array $arr): array
-    {
+
+    private function bubbleSortLeters(array $arr) : array {
         $n = count($arr);
 
         // Traverse through all array elements
         for ($i = 0; $i < $n - 1; $i++) {
             for ($j = 0; $j < $n - $i - 1; $j++) {
+
                 // Swap if the element found is
                 // greater than the next element
-                if ($arr[$j] > $arr[$j + 1]) {
+                if ($arr[$j][1] > $arr[$j + 1][1]) {
                     $temp = $arr[$j];
                     $arr[$j] = $arr[$j + 1];
                     $arr[$j + 1] = $temp;
@@ -190,6 +211,26 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         }
 
         return $arr;
+    }
+
+    public function showIterativas05(array $input = [], array $errors = [], string $result = ""): void
+    {
+        $data = array(
+            'titulo' => 'Iterativas 05',
+            'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas04'],
+            'seccion' => '/iterativas05',
+            'tituloEjercicio' => 'Contar numero de letras',
+            'errors' => $errors,
+            'input' => $input,
+            'cuentaletras' => $result
+        );
+
+        $this->view->showViews(array('templates/header.view.php', 'iterativas04.view.php', 'templates/footer.view.php'), $data);
+    }
+
+    public function doIterativas05()
+    {
+
     }
 
     public function iterativas06()
