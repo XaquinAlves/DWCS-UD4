@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="workspace">
+    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Compatibility php echo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas03.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas03.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas04.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas04.view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas05.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas05.view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas06.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas06.view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +131,7 @@
       <workItem from="1761143459391" duration="1121000" />
       <workItem from="1761144592194" duration="7000" />
       <workItem from="1761295056478" duration="9438000" />
-      <workItem from="1761577537655" duration="332000" />
+      <workItem from="1761577537655" duration="440000" />
     </task>
     <task id="LOCAL-00001" summary="Config">
       <option name="closed" value="true" />
@@ -286,7 +285,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761306965601</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Compatibility php echo">
+      <option name="closed" value="true" />
+      <created>1761577894185</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1761577894185</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,7 +312,8 @@
     <MESSAGE value="Formating" />
     <MESSAGE value="iterativas06" />
     <MESSAGE value="workspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="workspace" />
+    <MESSAGE value="Compatibility php echo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Compatibility php echo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

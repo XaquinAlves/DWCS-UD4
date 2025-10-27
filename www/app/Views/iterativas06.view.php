@@ -2,9 +2,9 @@
 <div class="row">
     <div class="col-12">
         <div class="col-12">
-            <?php if(isset($errors['erasto'])){ ?>
+            <?php if (isset($errors['erasto'])) { ?>
                 <div class='alert alert-danger'><?= $errors['erasto'] ?></div>
-            <?php } else if ($cribado !== "") { ?>
+            <?php } elseif ($cribado !== "") { ?>
                 <div class='col-12'><div class='alert alert-success'>Numeros primos entre 1 e
                         <?php echo $input['input_erasto'] ?>: <?php echo $cribado ?></div></div>
             <?php } ?>

@@ -14,7 +14,7 @@
                         <div class="row">
                             <div class="col-12 col-lg-4">
                                 <div class="mb-3">
-                                    <label for="input_matriz">Introduce una matriz de numeros: </label>
+                                    <label for="input_matriz">Introduce una matriz de números: </label>
                                     <input type="text" class="form-control" name="input_matriz" id="input_matriz"
                                            value="<?php echo $input['input_matriz'] ?? '' ?>" />
                                 </div>
@@ -26,9 +26,9 @@
                         <input type="submit" value="Enviar" name="enviar" class="btn btn-primary ml-2"/>
                     </div>
                     <div class="col-12">
-                        <?php if(isset($errors['matriz'])){ ?>
+                        <?php if (isset($errors['matriz'])) { ?>
                             <div class='alert alert-danger'><?php echo $errors['matriz'] ?></div>
-                        <?php } else if ($ordenados !== "") { ?>
+                        <?php } elseif ($ordenados !== "") { ?>
                             <div class='col-12'><div class='alert alert-success'>Matriz ordenada:
                                     <?php echo $ordenados ?></div></div>
                         <?php } ?>

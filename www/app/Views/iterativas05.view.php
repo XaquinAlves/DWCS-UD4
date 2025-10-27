@@ -27,9 +27,9 @@
                         <input type="submit" value="Enviar" name="enviar" class="btn btn-primary ml-2"/>
                     </div>
                     <div class="col-12">
-                        <?php if(isset($errors['palabras'])){ ?>
+                        <?php if (isset($errors['palabras'])) { ?>
                             <div class='alert alert-danger'><?php echo $errors['palabras'] ?></div>
-                        <?php } else if ($cuentapalabras !== "") { ?>
+                        <?php } elseif ($cuentapalabras !== "") { ?>
                             <div class='col-12'><div class='alert alert-success'>Cuenta de las palabras:
                                     <?php echo $cuentapalabras ?></div></div>
                         <?php } ?>
