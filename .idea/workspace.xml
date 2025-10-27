@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Live template phpe&#10;php echo live template">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Simplified regex usage">
       <change beforePath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas04.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas04.view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +128,7 @@
       <workItem from="1761143459391" duration="1121000" />
       <workItem from="1761144592194" duration="7000" />
       <workItem from="1761295056478" duration="9438000" />
-      <workItem from="1761577537655" duration="1192000" />
+      <workItem from="1761577537655" duration="1361000" />
     </task>
     <task id="LOCAL-00001" summary="Config">
       <option name="closed" value="true" />
@@ -308,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761578243927</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Simplified regex usage">
+      <option name="closed" value="true" />
+      <created>1761578792535</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1761578792535</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +336,8 @@
     <MESSAGE value="Compatibility php echo" />
     <MESSAGE value="Format fixing" />
     <MESSAGE value="Live template phpe&#10;php echo live template" />
-    <option name="LAST_COMMIT_MESSAGE" value="Live template phpe&#10;php echo live template" />
+    <MESSAGE value="Simplified regex usage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Simplified regex usage" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
