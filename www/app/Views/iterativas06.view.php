@@ -5,7 +5,8 @@
             <?php if(isset($errors['erasto'])){ ?>
                 <div class='alert alert-danger'><?= $errors['erasto'] ?></div>
             <?php } else if ($cribado !== "") { ?>
-                <div class='col-12'><div class='alert alert-success'>Numeros primos entre 1 e <?= $input['input_erasto'] ?>: <?= $cribado ?></div></div>
+                <div class='col-12'><div class='alert alert-success'>Numeros primos entre 1 e
+                        <?php echo $input['input_erasto'] ?>: <?php echo $cribado ?></div></div>
             <?php } ?>
         </div>
         <div class="card shadow mb-4">
@@ -13,7 +14,7 @@
                 <input type="hidden" name="order" value="1"/>
                 <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary"><?= $tituloEjercicio ?></h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><?php echo $tituloEjercicio ?></h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -23,7 +24,7 @@
                             <div class="mb-3">
                                 <label for="input_erasto">Introduce un número: </label>
                                 <input type="text" class="form-control" name="input_erasto" id="input_erasto"
-                                       value="<?= $input['input_erasto'] ?? '' ?>" />
+                                       value="<?php echo $input['input_erasto'] ?? '' ?>" />
                             </div>
                         </div>
                     </div>

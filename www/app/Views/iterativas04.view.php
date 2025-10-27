@@ -6,7 +6,7 @@
                 <input type="hidden" name="order" value="1"/>
                 <div
                         class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary"><?= $tituloEjercicio ?></h6>
+                    <h6 class="m-0 font-weight-bold text-primary"><?php echo $tituloEjercicio ?></h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -15,8 +15,9 @@
                             <div class="col-12 col-lg-4">
                                 <div class="mb-3">
                                     <label for="input_letras">Introduce un texto: </label>
-                                    <input type="text" class="form-control" name="input_letras" id="input_letras"
-                                           value="<?= $input['input_letras'] ?? '' ?>" />
+                                    <textarea name="input_letras" id="input_letras" rows="10" class="form-control">
+                                        <?php echo $input['input_letras'] ?? '' ?>
+                                    </textarea>
                                 </div>
                             </div>
                         </div>
@@ -27,9 +28,11 @@
                     </div>
                     <div class="col-12">
                         <?php if(isset($errors['letras'])){ ?>
-                            <div class='alert alert-danger'><?= $errors['letras'] ?></div>
+                            <div class='alert alert-danger'><?php echo $errors['letras'] ?></div>
                         <?php } else if ($cuentaletras !== "") { ?>
-                            <div class='col-12'><div class='alert alert-success'>Cuenta de las letras: <?= $cuentaletras ?></div></div>
+                            <div class='col-12'><div class='alert alert-success'>Cuenta de las letras:
+                                    <?php echo $cuentaletras ?></div>
+                            </div>
                         <?php } ?>
                     </div>
                 </div>
