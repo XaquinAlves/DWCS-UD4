@@ -274,7 +274,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
     {
         $errors = $this->checkForm06($_POST);
         $input = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $result = [];
+        $result = "";
 
         if ($errors === []) {
             $numero = intval($_POST['input_erasto']);

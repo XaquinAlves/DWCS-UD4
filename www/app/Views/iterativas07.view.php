@@ -14,15 +14,14 @@
                         <div class="row">
                             <div class="col-12 col-lg-4">
                                 <div class="mb-3">
-
                                 </div>
                             </div>
                         </div>
                 </div>
                 <div class="card-footer">
                     <div class="col-12 text-right">
-                        <input type="button" value="Enviar" name="enviar" class="btn btn-primary ml-2"/>
-                        <input type="button" value="Enviar" name="enviar" class="btn btn-primary ml-2"/>
+                        <input type="button" value="Sacar bola" name="sacar_bola" class="btn btn-primary ml-2"/>
+                        <input type="button" value="Reiniciar" name="reiniciar" class="btn btn-primary ml-2"/>
                     </div>
                 </div>
             </form>
