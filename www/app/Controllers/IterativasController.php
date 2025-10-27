@@ -146,18 +146,19 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         } else {
             //Pasamos a minúsculas y separamos en un array
             $aux = str_split(strtolower($input['input_letras']));
+            $aux = preg_replace("/[^a-z]/i", "", $aux);
 
             $letters = [];
             //Recorremos el array contando las letras con un regex
             for ($i = 0; $i < count($aux); $i++) {
-                if (preg_match("/[a-z]/", $aux[$i])) {
-                    if (array_key_exists($aux[$i], $letters)) {
-                        $letters[$aux[$i]] += 1;
-                    } else {
-                        $letters[$aux[$i]] = 1;
-                    }
+                if (array_key_exists($aux[$i], $letters)) {
+                    $letters[$aux[$i]] += 1;
+                } else {
+                    $letters[$aux[$i]] = 1;
                 }
             }
+            //limpiamos el array caracteres vacios
+            unset($letters['']);
             //Pasamos el array a un formato ordenable
             $letters_sorted = [];
 

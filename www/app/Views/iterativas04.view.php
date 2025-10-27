@@ -12,10 +12,10 @@
                 <div class="card-body">
                     <form action="" method="post">
                         <div class="row">
-                            <div class="col-12 col-lg-4">
+                            <div class="col-12">
                                 <div class="mb-3">
                                     <label for="input_letras">Introduce un texto: </label>
-                                    <textarea name="input_letras" id="input_letras" rows="10" class="form-control">
+                                    <textarea name="input_letras" id="input_letras" rows="10" class="form-control" >
                                         <?php echo $input['input_letras'] ?? '' ?>
                                     </textarea>
                                 </div>
