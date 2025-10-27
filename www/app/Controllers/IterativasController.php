@@ -140,39 +140,20 @@ class IterativasController extends \Com\Daw2\Core\BaseController
     {
         $errors = $this->checkForm04($_POST);
         $input = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $letters_string = "";
 
-        if ($errors !== []) {
-            $this->showIterativas04($input, $errors);
-        } else {
+        if ($errors === []) {
             //Pasamos a minúsculas y separamos en un array
-            $aux = str_split(strtolower($input['input_letras']));
-            $aux = preg_replace("/[^a-z]/", "", $aux);
-
-            $letters = [];
-            //Recorremos el array contando las letras con un regex
-            for ($i = 0; $i < count($aux); $i++) {
-                if (array_key_exists($aux[$i], $letters)) {
-                    $letters[$aux[$i]] += 1;
-                } else {
-                    $letters[$aux[$i]] = 1;
-                }
-            }
-            //limpiamos el array caracteres vacios
-            unset($letters['']);
-            //Pasamos el array a un formato ordenable
-            $letters_sorted = [];
-
-            foreach ($letters as $key => $value) {
-                $letters_sorted[] = [$key, $value];
-            }
+            $aux = mb_str_split(mb_strtolower(preg_replace("/\P{L}/u", "", $_POST['input_letras'])));
+            //Contamos las letras con un metodo
+            $letters_sorted = $this->buildCountArray($aux);
             //Ordenamos el array y lo invertimos para tener de mayor a menor
-            $letters_sorted = $this->bubbleSortLetters($letters_sorted);
-            $letters_sorted = array_reverse($letters_sorted);
+            arsort($letters_sorted);
             //Creamos el string de salida
             $letters_string = $this->countArrayToString($letters_sorted);
-
-            $this->showIterativas04($input, [], $letters_string);
         }
+
+        $this->showIterativas04($input, $errors, $letters_string);
     }
 
     private function checkForm04(array $data): array
@@ -180,51 +161,42 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         $erros = [];
 
         if (empty($data['input_letras'])) {
-            $erros['letras'] = "Inserte un valor no campo";
+            $erros['letras'] = "Inserte un texto no campo";
+        } else {
+            $text = preg_replace("/\P{L}/u", "", $data['input_letras']);
+            if ($text === "") {
+                $erros['letras'] = "O texto non contén letras";
+            }
         }
 
         return $erros;
     }
 
-    /**
-     * @param array $words_sorted
-     * @return string
-     */
     public function countArrayToString(array $words_sorted): string
     {
         $words_string = "";
 
-        for ($i = 0; $i < count($words_sorted); $i++) {
-            $words_string .= $words_sorted[$i][0] . ": " . $words_sorted[$i][1];
-
-            if ($i < count($words_sorted) - 1) {
-                $words_string .= ", ";
-            } else {
-                $words_string .= ".";
-            }
+        foreach ($words_sorted as $key => $value) {
+            $words_string .= $key . ": " . $value . ", ";
         }
-        return $words_string;
+
+        return substr($words_string, 0, -2) . ".";
     }
 
-    private function bubbleSortLetters(array $arr): array
+    private function buildCountArray(array $array): array
     {
-        $n = count($arr);
-
-        // Traverse through all array elements
-        for ($i = 0; $i < $n - 1; $i++) {
-            for ($j = 0; $j < $n - $i - 1; $j++) {
-                // Swap if the element found is
-                // greater than the next element
-                if ($arr[$j][1] > $arr[$j + 1][1]) {
-                    $temp = $arr[$j];
-                    $arr[$j] = $arr[$j + 1];
-                    $arr[$j + 1] = $temp;
-                }
+        $count = [];
+        //Contamos las palabras
+        for ($i = 0; $i < count($array); $i++) {
+            if (isset($count[$array[$i]])) {
+                $count[$array[$i]]++;
+            } else {
+                $count[$array[$i]] = 1;
             }
         }
-
-        return $arr;
+        return $count;
     }
+
 
     public function showIterativas05(array $input = [], array $errors = [], string $result = ""): void
     {
@@ -246,39 +218,21 @@ class IterativasController extends \Com\Daw2\Core\BaseController
     {
         $errors = $this->checkForm05($_POST);
         $input = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $words_string = "";
 
-        if ($errors !== []) {
-            $this->showIterativas05($input, $errors);
-        } else {
-            //Pasamos a minúsculas y separamos en un array
-            $aux = explode(" ", strtolower($input['input_palabras']));
-            $words = [];
-            //Contamos las palabras
-            for ($i = 0; $i < count($aux); $i++) {
-                //Limpiamos puntuación final
-                if (preg_match("/[a-z]+[\.,]/", $aux[$i])) {
-                    $aux[$i] = preg_replace("/[\.,]/", "", $aux[$i]);
-                }
-
-                if (array_key_exists($aux[$i], $words)) {
-                    $words[$aux[$i]] += 1;
-                } else {
-                    $words[$aux[$i]] = 1;
-                }
-            }
-            //Pasamos el array a un formato ordenable
-            $words_sorted = [];
-
-            foreach ($words as $key => $value) {
-                $words_sorted[] = [$key, $value];
-            }
+        if ($errors === []) {
+            //Pasamos a minúsculas, limpiamos espacios sobrantes y separamos en un array de palabras
+            $aux = explode(" ", preg_replace("/ {2,}/", " ", trim(mb_strtolower($_POST['input_palabras']))));
+            $aux = preg_replace("/\P{L}/u", "", $aux);
+            //Contamos las palabras con un metodo
+            $words_sorted = $this->buildCountArray($aux);
             //Ordenamos el array y lo invertimos para tener de mayor a menor
-            $words_sorted = array_reverse($this->bubbleSortLetters($words_sorted));
+            arsort($words_sorted);
             //Creamos el string de salida
             $words_string = $this->countArrayToString($words_sorted);
-
-            $this->showIterativas05($input, [], $words_string);
         }
+
+        $this->showIterativas05($input, $errors, $words_string);
     }
 
     private function checkForm05(array $data): array
@@ -287,6 +241,15 @@ class IterativasController extends \Com\Daw2\Core\BaseController
 
         if (empty($data['input_palabras'])) {
             $errors['palabras'] = "Inserte un valor no campo";
+        } else {
+            $text = preg_replace("/\P{L}/u", "", $data['input_palabras']);
+            if ($text === "") {
+                $errors['palabras'] = "O texto non contén letras";
+            }
+//          else {
+//                $palabras = explode(" ", preg_replace("/ {2,}/", " ", trim(mb_strtolower($data['input_palabras']))));
+//                if (count($palabras) === 0) {
+//                    $errors['palabras'] = "O texto non contén palabras";}
         }
 
         return $errors;
@@ -311,11 +274,10 @@ class IterativasController extends \Com\Daw2\Core\BaseController
     {
         $errors = $this->checkForm06($_POST);
         $input = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $result = [];
 
-        if ($errors !== []) {
-            $this->showIterativas06($input, $errors);
-        } else {
-            $numero = intval($input['input_erasto']);
+        if ($errors === []) {
+            $numero = intval($_POST['input_erasto']);
             $listaNumeros = [];
 
             for ($i = 1; $i <= $numero; $i++) {
@@ -331,8 +293,8 @@ class IterativasController extends \Com\Daw2\Core\BaseController
             }
 
             $result = implode(', ', $listaNumeros);
-            $this->showIterativas06($input, [], $result);
         }
+        $this->showIterativas06($input, $errors, $result);
     }
 
     private function checkForm06(array $data): array
@@ -355,5 +317,25 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         }
 
         return $errors;
+    }
+
+    public function showIterativas07(array $input = [], array $errors = [], string $result = ""): void
+    {
+        $data = array(
+            'titulo' => 'Iterativas 07',
+            'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas07'],
+            'seccion' => '/iterativas07',
+            'tituloEjercicio' => 'Bingo',
+            'errors' => $errors,
+            'input' => $input,
+            'cribado' => $result
+        );
+
+        $this->view->showViews(array('templates/header.view.php', 'iterativas06.view.php',
+            'templates/footer.view.php'), $data);
+    }
+
+    public function doIterativas07(): void
+    {
     }
 }
