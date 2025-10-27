@@ -331,7 +331,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
             'cribado' => $result
         );
 
-        $this->view->showViews(array('templates/header.view.php', 'iterativas06.view.php',
+        $this->view->showViews(array('templates/header.view.php', 'iterativas07.view.php',
             'templates/footer.view.php'), $data);
     }
 
