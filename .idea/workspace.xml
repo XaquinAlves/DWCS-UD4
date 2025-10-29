@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Starting iterativas07">
-      <change afterPath="$PROJECT_DIR$/www/app/Views/iterativas08.view.php" afterDir="false" />
+    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Ejercicios Iterativas&#10;mejora erastotenes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Core/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Core/FrontController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas06.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas06.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas08.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas08.view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +134,7 @@
       <workItem from="1761577537655" duration="6680000" />
       <workItem from="1761584466934" duration="1545000" />
       <workItem from="1761725348564" duration="15000" />
-      <workItem from="1761725373008" duration="5131000" />
+      <workItem from="1761725373008" duration="8278000" />
     </task>
     <task id="LOCAL-00001" summary="Config">
       <option name="closed" value="true" />
@@ -346,7 +344,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761585996827</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Ejercicios Iterativas&#10;mejora erastotenes">
+      <option name="closed" value="true" />
+      <created>1761730581324</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1761730581324</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,7 +377,8 @@
     <MESSAGE value="Simplified regex usage" />
     <MESSAGE value="Various improvements" />
     <MESSAGE value="Starting iterativas07" />
-    <option name="LAST_COMMIT_MESSAGE" value="Starting iterativas07" />
+    <MESSAGE value="Ejercicios Iterativas&#10;mejora erastotenes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ejercicios Iterativas&#10;mejora erastotenes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

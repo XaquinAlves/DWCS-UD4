@@ -27,9 +27,9 @@
                     <div class="col-12">
                         <?php if (isset($errors['json'])) { ?>
                             <div class='alert alert-danger'><?php echo $errors['json'] ?></div>
-                        <?php } elseif (true) { ?>
+                        <?php } elseif ($resultado !== "") { ?>
                             <div class='col-12'>
-                                <div class='alert alert-success'></div>
+                                <div class='alert alert-success'><?php echo $resultado ?></div>
                             </div>
                         <?php } ?>
                     </div>

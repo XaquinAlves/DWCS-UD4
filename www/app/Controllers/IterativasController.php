@@ -372,7 +372,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
             'tituloEjercicio' => 'Criba de Erastótenes',
             'errors' => $errors,
             'input' => $input,
-            'notas' => $result
+            'resultado' => $result
         );
 
         $this->view->showViews(array('templates/header.view.php', 'iterativas08.view.php',
@@ -383,55 +383,120 @@ class IterativasController extends \Com\Daw2\Core\BaseController
     {
         $errors = $this->checkForm08($_POST);
         $input = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $result = [];
+        $suspensos = [];
+        $noPromocionan = [];
+        $aprobados = [];
 
         if ($errors === []) {
             $decoded = json_decode($_POST['input_json'], true);
-            $result = [];
 
-            foreach ($decoded as $asignatura) {
+            foreach ($decoded as $nombreAsignatura => $listaAlumnos) {
                 $sumaNotas = 0;
-                $numAlumnos = count($asignatura);
+                $numAlumnos = count($listaAlumnos);
+
                 $numAprobados = 0;
-                $numSuspensos= 0;
+                $numSuspensos = 0;
+
                 $notaMax = 0;
                 $notaMaxAlumno = "";
+
                 $notaMin = 11;
                 $notaMinAlumno = "";
 
-                foreach ($asignatura as $nota) {
+                foreach ($listaAlumnos as $alumno => $nota) {
                     $sumaNotas += $nota;
+
                     if ($nota < 5) {
                         $numSuspensos++;
+                        if (in_array($alumno, $aprobados)) {
+                            if (($key = array_search($alumno, $aprobados)) !== false) {
+                                unset($aprobados[$key]);
+                            }
+                        }
+
+                        if (in_array($alumno, $suspensos)) {
+                            $noPromocionan[] = $alumno;
+                        } else {
+                            $suspensos[] = $alumno;
+                        }
                     } else {
                         $numAprobados++;
+                        if (!in_array($alumno, $aprobados)) {
+                            $aprobados[] = $alumno;
+                        }
                     }
 
                     if ($nota > $notaMax) {
                         $notaMax = $nota;
-                        $notaMaxAlumno = key($nota);
+                        $notaMaxAlumno = $alumno;
                     }
+
                     if ($nota < $notaMin) {
                         $notaMin = $nota;
-                        $notaMinAlumno = key($nota);
+                        $notaMinAlumno = $alumno;
                     }
                 }
 
-                $result[key($decoded)] = [
-                    ""
+
+
+                $result[$nombreAsignatura] = [
+                    "media" => ($sumaNotas / $numAlumnos),
+                    "suspensos" => $numSuspensos,
+                    "aprobados" => $numAprobados,
+                    "max" => array(
+                        'alumno' => $notaMaxAlumno,
+                        'nota' => $notaMax
+                    ),
+                    "min" => array(
+                        'alumno' => $notaMinAlumno,
+                        'nota' => $notaMin
+                    )
                 ];
             }
         }
+
+        var_dump($result);
+        $result = json_encode($result);
+
+        $this->showIterativas08($input, $errors, $result);
     }
 
     private function checkForm08(array $data): array
     {
         $errors = [];
 
-        if (!isset($_POST['input_json'])) {
+
+        if (empty($data['input_json'])) {
             $errors['json'] = "Inserte un valor no campo";
-        } elseif (json_decode($_POST['input_json'], true) === null) {
-            $errors['json'] = "A entrada debe estar en formato JSON";
+        } else {
+            $datos = json_decode($data['input_json'], true);
+            if ($datos === null) {
+                $errors['json'] = "A entrada debe estar en formato JSON";
+            } else {
+                //Comprobamos que la estructura es valida
+                $erroresDatos = [];
+                foreach ($datos as $nombreAsignatura => $listaAlumnos) {
+                    if (!is_string($nombreAsignatura)) {
+                        $erroresDatos[] = "'$nombreAsignatura' no es una asignatura válida.";
+                    } elseif ($nombreAsignatura === "") {
+                        $erroresDatos[] = "'$nombreAsignatura' no es nombre de asignatura valido.";
+                    }
+                    if (!is_array($listaAlumnos)) {
+                        $erroresDatos[] = "La asignatura $nombreAsignatura no tiene un array de alumnos";
+                    } else {
+                        foreach ($listaAlumnos as $alumno => $nota) {
+                            if (!is_string($alumno)) {
+                                $erroresDatos[] = "El alummo '$alumno' de la asignatura $nombreAsignatura no tiene un nombre valido";
+                            } elseif ($alumno === "") {
+
+                            }
+                        }
+                    }
+                }
+            }
         }
+
 
         return $errors;
     }
