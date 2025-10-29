@@ -5,8 +5,11 @@
             <?php if (isset($errors['erasto'])) { ?>
                 <div class='alert alert-danger'><?= $errors['erasto'] ?></div>
             <?php } elseif ($cribado !== "") { ?>
-                <div class='col-12'><div class='alert alert-success'>Numeros primos entre 1 e
-                        <?php echo $input['input_erasto'] ?>: <?php echo $cribado ?></div></div>
+                <div class='col-12'>
+                    <div class='alert alert-success'>Numeros primos entre 1 e
+                        <?php echo $input['input_erasto'] ?>: <?php echo $cribado ?></div>
+                    Ciclos <?php echo $ciclos ?>
+                </div>
             <?php } ?>
         </div>
         <div class="card shadow mb-4">

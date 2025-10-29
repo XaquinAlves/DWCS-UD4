@@ -255,7 +255,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         return $errors;
     }
 
-    public function showIterativas06(array $input = [], array $errors = [], string $result = ""): void
+    public function showIterativas06(array $input = [], array $errors = [], string $result = "", int $ciclos = 0): void
     {
         $data = array(
             'titulo' => 'Iterativas 06',
@@ -264,7 +264,8 @@ class IterativasController extends \Com\Daw2\Core\BaseController
             'tituloEjercicio' => 'Criba de Erastótenes',
             'errors' => $errors,
             'input' => $input,
-            'cribado' => $result
+            'cribado' => $result,
+            'ciclos' => $ciclos,
         );
 
         $this->view->showViews(array('templates/header.view.php', 'iterativas06.view.php',
@@ -278,23 +279,34 @@ class IterativasController extends \Com\Daw2\Core\BaseController
 
         if ($errors === []) {
             $numero = intval($_POST['input_erasto']);
-            $listaNumeros = [];
+            $ciclos = 0;
 
-            for ($i = 1; $i <= $numero; $i++) {
-                $listaNumeros[] = $i;
-            }
+            $listaNumeros = range(2, $numero);
+//
+//            for ($i = 0; $i < count($listaNumeros); $i++) {
+//                for ($j = $i + 1; $j < count($listaNumeros); $j++) {
+//                    if ($listaNumeros[$j] % $listaNumeros[$i] === 0) {
+//                        array_splice($listaNumeros, $j, 1);
+//                    }
+//                    $ciclos++;
+//                }
+//            }
 
-            for ($i = 1; $i < count($listaNumeros); $i++) {
-                for ($j = $i + 1; $j < count($listaNumeros); $j++) {
-                    if ($listaNumeros[$j] % $listaNumeros[$i] === 0) {
-                        array_splice($listaNumeros, $j, 1);
+            for ($i = 2; $i <= $numero; $i++) {
+                for ($j = $i; $j * $i <= $numero; $j++) {
+                    if (array_search($i, $listaNumeros) !== false) {
+                        $pos = array_search($j * $i, $listaNumeros);
+                        if ($pos !== false) {
+                            unset($listaNumeros[$pos]);
+                        }
+                        $ciclos++;
                     }
                 }
             }
 
             $result = implode(', ', $listaNumeros);
         }
-        $this->showIterativas06($input, $errors, $result);
+        $this->showIterativas06($input, $errors, $result, $ciclos);
     }
 
     private function checkForm06(array $data): array
@@ -303,23 +315,21 @@ class IterativasController extends \Com\Daw2\Core\BaseController
 
         if (empty($data['input_erasto'])) {
             $errors['erasto'] = "Inserte un valor no campo";
+        } elseif (filter_var($data['input_erasto'], FILTER_VALIDATE_INT) === false) {
+            $errors['erasto'] = "Debes insertar un numero enteiro";
         } else {
-            $check = true;
-            $auxArray = str_split($data['input_erasto']);
-
-            for ($i = 0; $i < count($auxArray) && $check; $i++) {
-                $check = is_numeric($auxArray[$i]);
-            }
-
-            if (!$check) {
-                $errors['erasto'] = "Debes insertar un numero enteiro";
+            $numeroMax = (int)$data['input_erasto'];
+            if ($numeroMax < 2) {
+                $errors['erasto'] = "El numero debe ser mayor a 1";
+            } elseif ($numeroMax > 99999) {
+                $errors['erasto'] = "El numero debe ser menor a 99999";
             }
         }
 
         return $errors;
     }
 
-    public function showIterativas07(array $input = [], array $errors = [], string $result = ""): void
+    public function showIterativas07(array $input = [], array $errors = [], array $datos = []): void
     {
         $data = array(
             'titulo' => 'Iterativas 07',
@@ -328,7 +338,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
             'tituloEjercicio' => 'Bingo',
             'errors' => $errors,
             'input' => $input,
-            'cribado' => $result
+
         );
 
         $this->view->showViews(array('templates/header.view.php', 'iterativas07.view.php',
@@ -337,5 +347,92 @@ class IterativasController extends \Com\Daw2\Core\BaseController
 
     public function doIterativas07(): void
     {
+        if (isset($_GET['carton'])) {
+            $carton = $_GET['carton'];
+            $bolas = $_GET['bolas'];
+        } else {
+            $carton = [rand(1, 79)];
+            $bolas = [];
+        }
+
+        $bolas[] = rand(1, 79);
+
+        $datos = [
+            'carton' => $carton,
+            'bolas' => $bolas
+        ];
+    }
+
+    public function showIterativas08(array $input = [], array $errors = [], string $result = ""): void
+    {
+        $data = array(
+            'titulo' => 'Iterativas 06',
+            'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas06'],
+            'seccion' => '/iterativas06',
+            'tituloEjercicio' => 'Criba de Erastótenes',
+            'errors' => $errors,
+            'input' => $input,
+            'notas' => $result
+        );
+
+        $this->view->showViews(array('templates/header.view.php', 'iterativas08.view.php',
+            'templates/footer.view.php'), $data);
+    }
+
+    public function doIterativas08(): void
+    {
+        $errors = $this->checkForm08($_POST);
+        $input = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        if ($errors === []) {
+            $decoded = json_decode($_POST['input_json'], true);
+            $result = [];
+
+            foreach ($decoded as $asignatura) {
+                $sumaNotas = 0;
+                $numAlumnos = count($asignatura);
+                $numAprobados = 0;
+                $numSuspensos= 0;
+                $notaMax = 0;
+                $notaMaxAlumno = "";
+                $notaMin = 11;
+                $notaMinAlumno = "";
+
+                foreach ($asignatura as $nota) {
+                    $sumaNotas += $nota;
+                    if ($nota < 5) {
+                        $numSuspensos++;
+                    } else {
+                        $numAprobados++;
+                    }
+
+                    if ($nota > $notaMax) {
+                        $notaMax = $nota;
+                        $notaMaxAlumno = key($nota);
+                    }
+                    if ($nota < $notaMin) {
+                        $notaMin = $nota;
+                        $notaMinAlumno = key($nota);
+                    }
+                }
+
+                $result[key($decoded)] = [
+                    ""
+                ];
+            }
+        }
+    }
+
+    private function checkForm08(array $data): array
+    {
+        $errors = [];
+
+        if (!isset($_POST['input_json'])) {
+            $errors['json'] = "Inserte un valor no campo";
+        } elseif (json_decode($_POST['input_json'], true) === null) {
+            $errors['json'] = "A entrada debe estar en formato JSON";
+        }
+
+        return $errors;
     }
 }

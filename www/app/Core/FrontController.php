@@ -123,6 +123,21 @@ class FrontController
         },
             'post');
 
+        Route::add(
+            '/iterativas08',
+            function () {
+                $controlador = new \Com\Daw2\Controllers\IterativasController();
+                $controlador->showIterativas08();
+            },
+            'get'
+        );
+
+        Route::add('/iterativas08', function () {
+            $controlador = new \Com\Daw2\Controllers\IterativasController();
+            $controlador->doIterativas08();
+        },
+            'post');
+
         Route::run();
     }
 }
