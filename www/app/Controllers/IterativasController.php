@@ -487,16 +487,27 @@ class IterativasController extends \Com\Daw2\Core\BaseController
                     } else {
                         foreach ($listaAlumnos as $alumno => $nota) {
                             if (!is_string($alumno)) {
-                                $erroresDatos[] = "El alummo '$alumno' de la asignatura $nombreAsignatura no tiene un nombre valido";
+                                $erroresDatos[] = "El alumno '$alumno' de la asignatura $nombreAsignatura no tiene un 
+                                nombre valido";
                             } elseif ($alumno === "") {
-
+                                $erroresDatos[] = "En la asignatura $nombreAsignatura hay un alumno con el 
+                                nombre vacío";
+                            }
+                            if (!is_numeric($nota)) {
+                                $erroresDatos[] = "El alumno '$alumno' de la asignatura $nombreAsignatura tiene como 
+                                nota '$nota' que no es un número";
+                            } elseif ($nota < 0 || $nota > 10) {
+                                $erroresDatos[] = "El alumno '$alumno' de la asignatura $nombreAsignatura tiene como 
+                                nota '$nota' que no está comprendida entre 0 y 10";
                             }
                         }
                     }
                 }
+                if ($erroresDatos !== []) {
+                    $errors['json'] = implode("\n", $erroresDatos);
+                }
             }
         }
-
 
         return $errors;
     }
