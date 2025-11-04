@@ -15,7 +15,8 @@
                             <div class="col-12">
                                 <div class="mb-3">
                                     <label for="input_letras">Introduce un texto: </label>
-                                    <textarea name="input_letras" id="input_letras" rows="10" class="form-control" ><?php echo $input['input_letras'] ?? '' ?></textarea>
+                                    <textarea name="input_letras" id="input_letras" rows="10" class="form-control"
+                                    ><?php echo $input['input_letras'] ?? '' ?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -38,4 +39,4 @@
         </div>
     </div>
 </div>
-<!--Fin HTML -->
+<!-- Fin HTML -->
