@@ -121,7 +121,10 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="mb-3">
-                            <label for="input_json">Introduce un array en formato JSON: </label>
+                            <label for="input_json">Introduce un array en formato JSON como <a target="_blank"
+                                        href="https://centros.edu.xunta.gal/iespazomerce/aulavirtual/pluginfile.php/
+                                        103167/mod_book/chapter/3738/json_ejercicio_8.txt">este</a> :
+                            </label>
                             <textarea name="input_json" id="input_json" rows="10" class="form-control" ><?php
                                 echo $input['input_json'] ?? '' ?></textarea>
                         </div>

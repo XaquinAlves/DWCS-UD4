@@ -366,10 +366,10 @@ class IterativasController extends \Com\Daw2\Core\BaseController
     public function showIterativas08(array $input = [], array $errors = [], array $result = []): void
     {
         $data = array(
-            'titulo' => 'Iterativas 06',
+            'titulo' => 'Iterativas 08',
             'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas06'],
-            'seccion' => '/iterativas06',
-            'tituloEjercicio' => 'Criba de Erastótenes',
+            'seccion' => '/iterativas08',
+            'tituloEjercicio' => 'Procesado de JSON',
             'errors' => $errors,
             'input' => $input,
             'resultado' => $result
