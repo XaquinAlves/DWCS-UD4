@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Ejercicios Iterativas08&#10;Working on view">
+    <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Ejercicios Iterativas08&#10;Refactor controller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas08.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas08.view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +135,7 @@
       <workItem from="1761584466934" duration="1545000" />
       <workItem from="1761725348564" duration="15000" />
       <workItem from="1761725373008" duration="9943000" />
-      <workItem from="1762246492845" duration="6616000" />
+      <workItem from="1762246492845" duration="7717000" />
     </task>
     <task id="LOCAL-00001" summary="Config">
       <option name="closed" value="true" />
@@ -384,7 +385,15 @@
       <option name="project" value="LOCAL" />
       <updated>1762252062222</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Ejercicios Iterativas08&#10;Refactor controller">
+      <option name="closed" value="true" />
+      <created>1762254731155</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1762254731155</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,7 +422,8 @@
     <MESSAGE value="Ejercicios Iterativas08" />
     <MESSAGE value="Ejercicios Iterativas08&#10;Validaciones hechas" />
     <MESSAGE value="Ejercicios Iterativas08&#10;Working on view" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ejercicios Iterativas08&#10;Working on view" />
+    <MESSAGE value="Ejercicios Iterativas08&#10;Refactor controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ejercicios Iterativas08&#10;Refactor controller" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
