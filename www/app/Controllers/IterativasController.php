@@ -363,7 +363,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         ];
     }
 
-    public function showIterativas08(array $input = [], array $errors = [], string $result = ""): void
+    public function showIterativas08(array $input = [], array $errors = [], array $result = []): void
     {
         $data = array(
             'titulo' => 'Iterativas 06',
@@ -383,10 +383,11 @@ class IterativasController extends \Com\Daw2\Core\BaseController
     {
         $errors = $this->checkForm08($_POST);
         $input = filter_var_array($_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-        $result = [];
+        $result = [
+            'asignaturas' => [],
+            'suspensos' => [],
+        ];
         $suspensos = [];
-        $noPromocionan = [];
-        $aprobados = [];
 
         if ($errors === []) {
             $decoded = json_decode($_POST['input_json'], true);
@@ -404,62 +405,61 @@ class IterativasController extends \Com\Daw2\Core\BaseController
                 $notaMin = 11;
                 $notaMinAlumno = "";
 
-                foreach ($listaAlumnos as $alumno => $nota) {
-                    $sumaNotas += $nota;
+                if ($numAlumnos > 0) {
+                    foreach ($listaAlumnos as $alumno => $nota) {
+                        $sumaNotas += $nota;
 
-                    if ($nota < 5) {
-                        $numSuspensos++;
-                        if (in_array($alumno, $aprobados)) {
-                            if (($key = array_search($alumno, $aprobados)) !== false) {
-                                unset($aprobados[$key]);
+                        if ($nota < 5) {
+                            $numSuspensos++;
+                            if (!in_array($alumno, $suspensos)) {
+                                $suspensos[$alumno] = 1;
+                            } else {
+                                $suspensos[$alumno]++;
+                            }
+                        } else {
+                            $numAprobados++;
+                            if(!in_array($alumno, $suspensos)){
+                                $suspensos[$alumno] = 0;
                             }
                         }
 
-                        if (in_array($alumno, $suspensos)) {
-                            $noPromocionan[] = $alumno;
-                        } else {
-                            $suspensos[] = $alumno;
+                        if ($nota > $notaMax) {
+                            $notaMax = $nota;
+                            $notaMaxAlumno = $alumno;
                         }
-                    } else {
-                        $numAprobados++;
-                        if (!in_array($alumno, $aprobados)) {
-                            $aprobados[] = $alumno;
+
+                        if ($nota < $notaMin) {
+                            $notaMin = $nota;
+                            $notaMinAlumno = $alumno;
                         }
                     }
 
-                    if ($nota > $notaMax) {
-                        $notaMax = $nota;
-                        $notaMaxAlumno = $alumno;
-                    }
-
-                    if ($nota < $notaMin) {
-                        $notaMin = $nota;
-                        $notaMinAlumno = $alumno;
-                    }
+                    $result['asignaturas'][$nombreAsignatura] = [
+                        "media" => ($sumaNotas / $numAlumnos),
+                        "suspensos" => $numSuspensos,
+                        "aprobados" => $numAprobados,
+                        "max" => array(
+                            'alumno' => $notaMaxAlumno,
+                            'nota' => $notaMax
+                        ),
+                        "min" => array(
+                            'alumno' => $notaMinAlumno,
+                            'nota' => $notaMin
+                        )
+                    ];
+                } else {
+                    $result['asignaturas'][$nombreAsignatura] = [];
                 }
-
-
-
-                $result[$nombreAsignatura] = [
-                    "media" => ($sumaNotas / $numAlumnos),
-                    "suspensos" => $numSuspensos,
-                    "aprobados" => $numAprobados,
-                    "max" => array(
-                        'alumno' => $notaMaxAlumno,
-                        'nota' => $notaMax
-                    ),
-                    "min" => array(
-                        'alumno' => $notaMinAlumno,
-                        'nota' => $notaMin
-                    )
-                ];
             }
+            $result['suspensos'] = $suspensos;
         }
 
-        var_dump($result);
-        $result = json_encode($result);
-
         $this->showIterativas08($input, $errors, $result);
+    }
+
+    private function procesarAsignaturasJson(array $datos): array
+    {
+        $resultado = [];
     }
 
     private function checkForm08(array $data): array
