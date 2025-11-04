@@ -504,7 +504,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
                     }
                 }
                 if ($erroresDatos !== []) {
-                    $errors['json'] = implode("\n", $erroresDatos);
+                    $errors['json'] = implode("<br />", $erroresDatos);
                 }
             }
         }
