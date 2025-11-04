@@ -409,18 +409,15 @@ class IterativasController extends \Com\Daw2\Core\BaseController
                     foreach ($listaAlumnos as $alumno => $nota) {
                         $sumaNotas += $nota;
 
+                        if (!isset($suspensos[$alumno])) {
+                            $suspensos[$alumno] = 0;
+                        }
+
                         if ($nota < 5) {
                             $numSuspensos++;
-                            if (!in_array($alumno, $suspensos)) {
-                                $suspensos[$alumno] = 1;
-                            } else {
-                                $suspensos[$alumno]++;
-                            }
+                            $suspensos[$alumno]++;
                         } else {
                             $numAprobados++;
-                            if(!in_array($alumno, $suspensos)){
-                                $suspensos[$alumno] = 0;
-                            }
                         }
 
                         if ($nota > $notaMax) {
@@ -451,15 +448,11 @@ class IterativasController extends \Com\Daw2\Core\BaseController
                     $result['asignaturas'][$nombreAsignatura] = [];
                 }
             }
+
             $result['suspensos'] = $suspensos;
         }
 
         $this->showIterativas08($input, $errors, $result);
-    }
-
-    private function procesarAsignaturasJson(array $datos): array
-    {
-        $resultado = [];
     }
 
     private function checkForm08(array $data): array
@@ -474,7 +467,7 @@ class IterativasController extends \Com\Daw2\Core\BaseController
             if ($datos === null) {
                 $errors['json'] = "A entrada debe estar en formato JSON";
             } else {
-                //Comprobamos que la estructura es valida
+                //Comprobamos que la estructura es válida
                 $erroresDatos = [];
                 foreach ($datos as $nombreAsignatura => $listaAlumnos) {
                     if (!is_string($nombreAsignatura)) {
