@@ -117,11 +117,11 @@ class FrontController
             'get'
         );
 
-        Route::add('/iterativas07', function () {
+        Route::add('/iterativas07do', function () {
             $controlador = new \Com\Daw2\Controllers\IterativasController();
             $controlador->doIterativas07();
         },
-            'post');
+            'get');
 
         Route::add(
             '/iterativas08',

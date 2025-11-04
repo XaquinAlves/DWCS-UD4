@@ -329,16 +329,18 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         return $errors;
     }
 
-    public function showIterativas07(array $input = [], array $errors = [], array $datos = []): void
+    public function showIterativas07(array $carton = [], array $bolas = [], bool $win = false): void
     {
         $data = array(
             'titulo' => 'Iterativas 07',
             'breadcrumb' => ['Inicio', 'Iterativas', 'Iterativas07'],
             'seccion' => '/iterativas07',
             'tituloEjercicio' => 'Bingo',
-            'errors' => $errors,
-            'input' => $input,
-
+            'bingo' => [
+                'carton' => $carton,
+                'bolas' => $bolas
+                ],
+            'win' => $win
         );
 
         $this->view->showViews(array('templates/header.view.php', 'iterativas07.view.php',
@@ -355,12 +357,18 @@ class IterativasController extends \Com\Daw2\Core\BaseController
             $bolas = [];
         }
 
-        $bolas[] = rand(1, 79);
+        $done = false;
 
-        $datos = [
-            'carton' => $carton,
-            'bolas' => $bolas
-        ];
+        while (!$done) {
+            $nuevaBola = rand(1, 79);
+            if (!in_array($nuevaBola, $bolas)) {
+                $bolas[] = $nuevaBola;
+                $done = true;
+            }
+        }
+
+        $win = in_array($carton[0], $bolas);
+        $this->showIterativas07($carton, $bolas, $win);
     }
 
     public function showIterativas08(array $input = [], array $errors = [], array $result = []): void

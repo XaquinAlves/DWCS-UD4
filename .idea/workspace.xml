@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fccc576c-d885-4b81-9aa1-a64d63709d2b" name="Changes" comment="Ejercicios Iterativas08&#10;Done view">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas04.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas04.view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Controllers/IterativasController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/app/Core/FrontController.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Core/FrontController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/www/app/Views/iterativas07.view.php" beforeDir="false" afterPath="$PROJECT_DIR$/www/app/Views/iterativas07.view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,12 +43,12 @@
     &quot;assignee&quot;: &quot;XaquinAlves&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/XaquinAlves/DWCS-UD4&quot;,
-    &quot;accountId&quot;: &quot;099b7235-05a7-47b5-9ae1-70969fa2c459&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/XaquinAlves/DWCS-UD4.git",
+    "accountId": "099b7235-05a7-47b5-9ae1-70969fa2c459"
   }
-}</component>
+}]]></component>
   <component name="PHPCodeSnifferProjectConfiguration">
     <option name="selectedConfigurationId" value="9e3a7127-42d1-4081-8aa7-01e9f0d9c003" />
   </component>
@@ -414,6 +417,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Config" />
