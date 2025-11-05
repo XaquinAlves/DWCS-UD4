@@ -24,9 +24,9 @@
   <component name="PhpCodeSniffer">
     <phpcs_settings>
       <phpcs_by_interpreter interpreter_id="9e3a7127-42d1-4081-8aa7-01e9f0d9c003" beautifier_path="/usr/local/bin/phpcbf" standards="MySource;PEAR;PSR1;PSR12;PSR2;Squiz;Zend" tool_path="/usr/local/bin/phpcs" timeout="30000" />
-      <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="9e3a7127-42d1-4081-8aa7-01e9f0d9c003" beautifier_path="/usr/local/bin/phpcbf" standards="MySource;PEAR;PSR1;PSR12;PSR2;Squiz;Zend" tool_path="/usr/local/bin/phpcs" timeout="30000" />
       <PhpCSConfiguration beautifier_path="/usr/local/bin/phpbf" tool_path="/urs/local/bin/phpcs" />
-      <phpcs_by_interpreter interpreter_id="7d429d98-c94c-4054-9d0a-f7baf72250ac" beautifier_path="/usr/local/bin/phpcbf" tool_path="/urs/local/bin/phpcs" timeout="30000" />
+      <phpcs_by_interpreter asDefaultInterpreter="true" interpreter_id="9e3a7127-42d1-4081-8aa7-01e9f0d9c003" beautifier_path="/usr/local/bin/phpcbf" standards="MySource;PEAR;PSR1;PSR12;PSR2;Squiz;Zend" tool_path="/usr/local/bin/phpcs" timeout="30000" />
+      <phpcs_by_interpreter interpreter_id="7d429d98-c94c-4054-9d0a-f7baf72250ac" beautifier_path="/usr/local/bin/phpcbf" tool_path="/usr/local/bin/phpcs" timeout="30000" />
     </phpcs_settings>
   </component>
   <component name="PhpExternalFormatter">
@@ -47,7 +47,7 @@
   <component name="PhpInterpreters">
     <interpreters>
       <interpreter id="9e3a7127-42d1-4081-8aa7-01e9f0d9c003" name="Docker php" home="docker-compose://DATA" auto="false" debugger_id="php.debugger.XDebug">
-        <remote_data INTERPRETER_PATH="php" HELPERS_PATH="/opt/.phpstorm_helpers" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DOCKER_ACCOUNT_NAME="Docker" DOCKER_COMPOSE_SERVICE_NAME="php" DOCKER_REMOTE_PROJECT_PATH="/opt/project">
+        <remote_data INTERPRETER_PATH="php" HELPERS_PATH="/opt/.phpstorm_helpers" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DOCKER_ACCOUNT_NAME="DockerServicePHPStorm" DOCKER_COMPOSE_SERVICE_NAME="php" DOCKER_REMOTE_PROJECT_PATH="/opt/project">
           <type_data command="EXEC" />
           <dockerComposeConfigurationPaths>
             <item value="$PROJECT_DIR$/docker-compose.yml" />
@@ -56,8 +56,8 @@
         </remote_data>
       </interpreter>
       <interpreter id="7d429d98-c94c-4054-9d0a-f7baf72250ac" name="DockerPhpUd4" home="docker-compose://DATA" auto="false" debugger_id="php.debugger.XDebug">
-        <remote_data INTERPRETER_PATH="php" HELPERS_PATH="/opt/.phpstorm_helpers" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DOCKER_ACCOUNT_NAME="Docker" DOCKER_COMPOSE_SERVICE_NAME="php" DOCKER_REMOTE_PROJECT_PATH="/opt/project">
-          <type_data command="RUN" />
+        <remote_data INTERPRETER_PATH="php" HELPERS_PATH="/opt/.phpstorm_helpers" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DOCKER_ACCOUNT_NAME="DockerServicePHPStorm" DOCKER_COMPOSE_SERVICE_NAME="php" DOCKER_REMOTE_PROJECT_PATH="/opt/project">
+          <type_data command="EXEC" />
           <dockerComposeConfigurationPaths>
             <item value="$PROJECT_DIR$/docker-compose.yml" />
           </dockerComposeConfigurationPaths>
