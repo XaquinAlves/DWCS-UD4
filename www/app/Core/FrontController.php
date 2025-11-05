@@ -138,6 +138,12 @@ class FrontController
         },
             'post');
 
+        Route::add('/test-conexion', function () {
+            $controlador = new \Com\Daw2\Controllers\IterativasController();
+            $controlador->testConexion();
+        },
+            'get');
+
         Route::run();
     }
 }

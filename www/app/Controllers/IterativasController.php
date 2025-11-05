@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Com\Daw2\Controllers;
 
+use Com\Daw2\Model\UsuarioModel;
+
 class IterativasController extends \Com\Daw2\Core\BaseController
 {
     public function showIterativas03(array $input = [], array $errors = [], string $result = ""): void
@@ -503,5 +505,10 @@ class IterativasController extends \Com\Daw2\Core\BaseController
         }
 
         return $errors;
+    }
+
+    public function testConexion()
+    {
+        $model = new UsuarioModel();
     }
 }

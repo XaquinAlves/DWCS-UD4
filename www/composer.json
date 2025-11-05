@@ -10,6 +10,7 @@
     },
     "require": {
         "steampixel/simple-php-router": "^0.7.1",
-        "vlucas/phpdotenv": "^5.5"
+        "vlucas/phpdotenv": "^5.5",
+      "ext-pdo": "*"
     }
 }
